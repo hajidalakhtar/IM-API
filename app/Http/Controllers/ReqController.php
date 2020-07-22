@@ -19,10 +19,6 @@ class ReqController extends Controller
         $requ->wh_code = $req->wh_code;
         $requ->product_code = $req->product_code;
         $requ->product_name = $req->product_name;
-        $str = Str::random(80);
-        $uuid = Uuid::generate();
-        $encrypt = Crypt::encryptString($uuid);
-        $requ->api_tokens = hash('sha256',$encrypt); 
         $requ->qty = $req->qty;
         $requ->status = 'pending';
         $requ->save();
